@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ServisGo Layanan Panggilan & Bantuan Darurat Kendaraan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">Servis<span style="color: var(--secondary);">Go</span></a>
+      <div class="nav-links">
+        <a href="#home">Beranda</a>
+        <a href="#about">Tentang</a>
+        <a href="#services">Layanan</a>
+        <a href="#membership">Membership</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Kontak</a>
+      </div>
+      <button class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="notification" id="notification">
+    Pesanan berhasil dikirim!
+  </div>
+
+  <header id="home">
+    <div class="container">
+      <div class="hero">
+        <div class="left fade-in">
+          <h1>ServisGo Siap Membantu Anda Dimana Saja</h1>
+          <p>
+            Layanan bengkel panggilan 24 jam siap membantu kendaraan Anda yang mogok, 
+            ban bocor, aki lemah, atau butuh perawatan darurat di jalan. 
+            Teknisi kami siap datang ke lokasi Anda kapan pun dibutuhkan.
+          </p>
+
+          <button class="cta-button primary-btn" onclick="location.href='form_pesan.html'">Panggil Teknisi</button>
+          <div class="features">
+            <div class="card">
+              <i class="fas fa-clock"></i>
+              <strong>24/7 Panggilan</strong>
+              <p class="muted">Panggilan darurat ke lokasi Anda jalan, rumah, atau garasi.</p>
+            </div>
+            <div class="card">
+              <i class="fas fa-tools"></i>
+              <strong>Teknisi Profesional</strong>
+              <p class="muted">Teknisi tersertifikasi untuk semua jenis sepeda motor dan mobil kecil.</p>
+            </div>
+            <div class="card">
+              <i class="fas fa-wallet"></i>
+              <strong>Pembayaran Online</strong>
+              <p class="muted">Bayar pakai e-wallet atau transfer aman dan cepat.</p>
+            </div>
+            <div class="card">
+              <i class="fa-solid fa-truck"></i>
+              <strong>Layanan Towing</strong>
+              <p class="muted">Mobil diderek dengan aman dan cepat ke bengkel terdekat atau lokasi yang Anda tentukan.</p>
+            </div>
+          </div>
+        </div>
+        <div class="right card fade-in" style="min-width:280px;max-width:420px; padding: 0;">
+            <img src="foto/foto bengkel.jpg" alt="Bengkel ServisGo dengan Teknisi Profesional" 
+                 style="width: 100%; height: auto; border-radius: 12px 12px 0 0; display: block;" 
+                 onerror="this.src='https://via.placeholder.com/420x280/1a56db/ffffff?text=ServisGo+Bengkel'">
+            
+            <div style="padding: 20px;">
+                <h3 style="margin-top: 0;">Servis Profesional 24 Jam</h3>
+                <p class="muted" style="margin-bottom: 0;">
+                    Kami menyediakan layanan darurat terbaik. Untuk pemesanan, silakan 
+                    scroll ke bawah atau klik tombol "Pesan Sekarang".
+                </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about">
+      <div class="card fade-in">
+        <h2>Tentang ServisGo</h2>
+        <p class="muted">
+          Bengkel Online hadir untuk memberikan solusi cepat bagi pengguna kendaraan 
+          yang mengalami kendala di jalan. Kami melayani motor, mobil, dan kendaraan kecil lainnya 
+          dengan dukungan teknisi profesional dan peralatan modern.
+        </p>
+        <div style="display: flex; gap: 20px; margin-top: 20px;">
+          <div style="flex: 1;">
+            <h3 style="color: var(--primary); margin-bottom: 10px;">Visi Kami</h3>
+            <p class="muted">Menjadi penyedia layanan bengkel panggilan terdepan di Indonesia dengan teknologi terkini.</p>
+          </div>
+          <div style="flex: 1;">
+            <h3 style="color: var(--primary); margin-bottom: 10px;">Misi Kami</h3>
+            <p class="muted">Memberikan solusi cepat, aman, dan terjangkau untuk masalah kendaraan Anda di mana saja.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <section class="services" id="services">
+        <div class="section-title">
+            <h2>Layanan Kami</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="foto/gambar aki.jpg" alt="Layanan Ganti Aki Darurat" 
+                         onerror="this.src='https://via.placeholder.com/400x200/1a56db/ffffff?text=Ganti+Aki+Darurat'">
+                </div>
+                <br>
+                <div class="service-content">
+                    <h3>Ganti Aki Darurat</h3>
+                    <p>Layanan penggantian aki di tempat untuk kendaraan yang mogok karena aki soak.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Aki berkualitas premium</li>
+                        <li><i class="fas fa-check"></i> Garansi 1 tahun</li>
+                        <li><i class="fas fa-check"></i> Pemasangan profesional</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">Mulai Rp 450.000</span>
+                        <button class="cta-button book-service" data-service="Ganti Aki Darurat" onclick="location.href='form_pesan.html'">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="foto/bensin darurat.jpg" alt="Layanan Isi Bensin Darurat" 
+                         onerror="this.src='https://via.placeholder.com/400x200/f5b400/ffffff?text=Isi+Bensin+Darurat'">
+                </div>
+                <br>
+                <div class="service-content">
+                    <h3>Isi Bensin Darurat</h3>
+                    <p>Layanan pengisian bahan bakar darurat untuk kendaraan yang kehabisan bensin di jalan.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Bensin bersertifikasi</li>
+                        <li><i class="fas fa-check"></i> Tersedia berbagai jenis</li>
+                        <li><i class="fas fa-check"></i> Pengisian aman dan cepat</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">Mulai Rp 50.000</span>
+                        <button class="cta-button book-service" data-service="Isi Bensin Darurat" onclick="location.href='form_pesan.html'">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="foto/ganti ban.jpg" alt="Layanan Ganti Ban Serep" 
+                         onerror="this.src='https://via.placeholder.com/400x200/10b981/ffffff?text=Ganti+Ban+Serep'">
+                </div>
+                <br>
+                <div class="service-content">
+                    <h3>Ganti Ban Serep</h3>
+                    <p>Layanan penggantian ban serep untuk kendaraan yang mengalami ban bocor atau gundul.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Peralatan lengkap</li>
+                        <li><i class="fas fa-check"></i> Teknisi berpengalaman</li>
+                        <li><i class="fas fa-check"></i> Penggantian cepat</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">Mulai Rp 75.000</span>
+                        <button class="cta-button book-service" data-service="Ganti Ban Serep" onclick="location.href='form_pesan.html'">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="foto/towing.jpg" alt="Layanan Derek Mobil" 
+                         onerror="this.src='https://via.placeholder.com/400x215/e11d48/ffffff?text=Derek+Mobil'">
+                </div>
+                <br>
+                <div class="service-content">
+                    <h3>Derek Mobil</h3>
+                    <p>Layanan derek untuk kendaraan yang mengalami kerusakan berat dan perlu dibawa ke bengkel.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Derek modern dan aman</li>
+                        <li><i class="fas fa-check"></i> Tersedia 24 jam</li>
+                        <li><i class="fas fa-check"></i> Harga terjangkau</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">Mulai Rp 150.000</span>
+                        <button class="cta-button book-service" data-service="Derek Mobil" onclick="location.href='form_pesan.html'">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="foto/perbaikan ringan.jpg" alt="Layanan Perbaikan Ringan" 
+                         onerror="this.src='https://via.placeholder.com/400x215/0ea5e9/ffffff?text=Perbaikan+Ringan'">
+                </div>
+                <br>
+                <div class="service-content">
+                    <h3>Perbaikan Ringan</h3>
+                    <p>Layanan perbaikan ringan untuk masalah kendaraan yang tidak memerlukan perbaikan di bengkel.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Diagnosa masalah</li>
+                        <li><i class="fas fa-check"></i> Perbaikan sementara</li>
+                        <li><i class="fas fa-check"></i> Saran perbaikan lanjutan</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">Mulai Rp 100.000</span>
+                        <button class="cta-button book-service" data-service="Perbaikan Ringan" onclick="location.href='form_pesan.html'">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="foto/kunci.jpg" alt="Layanan Kunci Tertinggal" 
+                         onerror="this.src='https://via.placeholder.com/400x215/8b5cf6/ffffff?text=Kunci+Tertinggal'">
+                </div>
+                <br>
+                <div class="service-content">
+                    <h3>Kunci Tertinggal</h3>
+                    <p>Layanan bantuan untuk kendaraan yang terkunci dengan kunci tertinggal di dalam.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Teknik pembukaan aman</li>
+                        <li><i class="fas fa-check"></i> Tidak merusak kendaraan</li>
+                        <li><i class="fas fa-check"></i> Proses cepat</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">Mulai Rp 125.000</span>
+                        <button class="cta-button book-service" data-service="Kunci Tertinggal" onclick="location.href='form_pesan.html'">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="membership">
+    <div class="container">
+        <h2 style="text-align: center;">Program Membership</h2>
+        <p class="muted" style="text-align: center; max-width: 600px; margin: 0 auto 40px;">Dapatkan keuntungan ekstra dengan menjadi member ServisGo. Hemat biaya dan nikmati prioritas layanan!</p>
+        <div class="membership-grid">
+            <div class="membership-card animate-on-scroll">
+                <h3>Member Silver</h3>
+                <p class="price">Rp 100.000 <small>/ Tahun</small></p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Mendapatkan Kartu Member Silver</li>
+                    <li><i class="fas fa-check"></i> Diskon 5% untuk jasa perbaikan</li>
+                    <li><i class="fas fa-check"></i> Gratis Biaya Panggilan (3x per tahun)</li>
+                    <li><i class="fas fa-check"></i> Notifikasi Servis Berkala</li>
+                    <li><i class="fas fa-times" style="color: var(--accent);"></i> Prioritas Layanan Darurat</li>
+                    <li><i class="fas fa-times" style="color: var(--accent);"></i> Diskon 10% untuk Suku Cadang</li>
+                </ul>
+                <!-- PERBAIKAN: Hapus data-service dan ganti class -->
+                <button class="cta-button select-membership" data-plan="silver" data-price="100000"  onclick="location.href='membership.html'">Daftar Silver</button>
+            </div>
+            
+            <div class="membership-card premium animate-on-scroll">
+                <h3>Member Gold</h3>
+                <p class="price">Rp 200.000 <small>/ Tahun</small></p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Mendapatkan Kartu Member Silver</li>
+                    <li><i class="fas fa-check"></i> Diskon 15% untuk jasa perbaikan</li>
+                    <li><i class="fas fa-check"></i> Gratis Biaya Panggilan Tanpa Batas</li>
+                    <li><i class="fas fa-check"></i> Notifikasi Servis Berkala</li>
+                    <li><i class="fas fa-check"></i> Prioritas Layanan Darurat (24/7)</li>
+                    <li><i class="fas fa-check"></i> Diskon 10% untuk Suku Cadang</li>
+                </ul>
+                <!-- PERBAIKAN: Hapus inline style dan ganti class -->
+                <button class="cta-button select-membership premium-btn" data-plan="gold" data-price="200000" onclick="location.href='membership.html'">Daftar Gold</button>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2>Hubungi Kami</h2>
+            <div class="card contact-grid">
+                <div>
+                  <i class="fas fa-map-marker-alt"></i> 
+                  <strong>Alamat Bengkel</strong>
+                  <p class="muted">GCPF+6HJ, Jl. Raya Pulorejo, Mergelo, Pulorejo, Kec. Prajurit Kulon, Kota Mojokerto, Jawa Timur 61325</p>
+                </div>
+                <div>
+                  <i class="fas fa-envelope"></i>
+                  <strong>Email</strong>
+                  <p class="muted">help@servisgo.com</p>
+                </div>
+                <div>
+                  <i class="fas fa-clock"></i>
+                  <strong>Jam Operasional</strong>
+                  <p class="muted">Setiap Hari 24 Jam </p>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+<section id="blog">
+        <div class="container">
+            <h2>Artikel Terbaru</h2>
+            <div class="blog-grid">
+                <div class="article-card animate-on-scroll">
+                    <img src="foto/tips memper baiki.jpeg" alt="Tips Merawat Motor/Mobil" 
+                         onerror="this.src='https://via.placeholder.com/300x200/1a56db/ffffff?text=Tips+Perawatan'">
+                    <div class="article-content">
+                        <h4>Tips Merawat Motor dan Mobil Agar Tetap Prima</h4>
+                        <p>Ketahui jadwal dan cara perawatan rutin yang wajib Anda lakukan agar kendaraan Anda selalu siap digunakan...</p>
+                        <a href="artikel1.html" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="article-card animate-on-scroll">
+                    <img src="foto/cek aki artikel.jpg" alt="Cara Mengecek Aki Soak" 
+                         onerror="this.src='https://via.placeholder.com/300x200/f5b400/ffffff?text=Cek+Aki'">
+                    <div class="article-content">
+                        <h4>Mudah! Begini Cara Mengecek Sendiri Kondisi Aki Soak</h4>
+                        <p>Jangan sampai mogok di jalan. Pelajari tanda-tanda aki soak dan cara sederhana untuk mengeceknya di rumah...</p>
+                        <a href="artikel2.html" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="article-card animate-on-scroll">
+                    <img src="foto/penyebab.jpg" alt="Penyebab Motor Mati Mendadak" 
+                         onerror="this.src='https://via.placeholder.com/300x200/e11d48/ffffff?text=Motor+Mati'">
+                    <div class="article-content">
+                        <h4>5 Penyebab Umum Motor Mati Mendadak dan Solusi Cepatnya</h4>
+                        <p>Motor mati mendadak? Kenali akar masalahnya, mulai dari busi hingga sistem bahan bakar, dan cara mengatasinya...</p>
+                        <a href="arikel3.html" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>ServisGo</h3>
+                <p>Layanan bengkel online 24 jam untuk mengatasi kendaraan mogok di jalan. Teknisi profesional siap membantu kapan saja.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Layanan</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">Ganti Aki Darurat</a></li>
+                    <li><a href="#services">Isi Bensin Darurat</a></li>
+                    <li><a href="#services">Ganti Ban Serep</a></li>
+                    <li><a href="#services">Derek Mobil</a></li>
+                    <li><a href="#services">Perbaikan Ringan</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Perusahaan</h3>
+                <ul class="footer-links">
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#career">Karir</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#partners">Partner</a></li>
+                    <li><a href="#privacy">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Kontak</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> GCPF+6HJ, Jl. Raya Pulorejo, Mergelo, Pulorejo, Kec. Prajurit Kulon, Kota Mojokerto, Jawa Timur 61325</li>
+                    <li><i class="fas fa-phone-alt"></i> 1500-123</li>
+                    <li><i class="fas fa-envelope"></i> help@servisgo.com</li>
+                    <li><i class="fas fa-clock"></i> Buka 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ServisGo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="javascript.js"></script>
+</body>
+</html>
