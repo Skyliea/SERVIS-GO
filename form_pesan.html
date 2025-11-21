@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Layanan - ServisGo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="pesan.css">
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="floating-particles" id="particles"></div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tools"></i>
+                <span>ServisGo</span>
+            </a>
+            <button class="cta-button" onclick="location.href='index.html'">
+                <i class="fas fa-arrow-left"></i>
+                Kembali ke Beranda
+            </button>
+        </nav>
+    </header>
+
+    <!-- Booking Form Section -->
+    <section class="booking" id="booking">
+        <div class="section-title">
+            <h2>Pesan Layanan</h2>
+            <p>Isi form berikut untuk memesan layanan darurat dengan cepat dan mudah</p>
+        </div>
+        <div class="booking-container">
+            <div class="booking-header">
+                <h2>Form Pemesanan Layanan</h2>
+                <p>Isi data dengan benar untuk mempermudah proses penanganan</p>
+            </div>
+            <form class="booking-form" id="bookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">
+                            <i class="fas fa-user"></i>
+                            Nama Lengkap
+                        </label>
+                        <input type="text" id="name" class="form-control" placeholder="Masukkan nama lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">
+                            <i class="fas fa-phone"></i>
+                            Nomor Telepon
+                        </label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Contoh: 08123456789" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </label>
+                    <input type="email" id="email" class="form-control" placeholder="Contoh: nama@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">
+                        <i class="fas fa-concierge-bell"></i>
+                        Jenis Layanan
+                    </label>
+                    <select id="service" class="form-control" required>
+                        <option value="">Pilih layanan yang dibutuhkan</option>
+                        <option value="Ganti Aki Darurat">Ganti Aki Darurat</option>
+                        <option value="Isi Bensin Darurat">Isi Bensin Darurat</option>
+                        <option value="Ganti Ban Serep">Ganti Ban Serep</option>
+                        <option value="Derek Mobil">Derek Mobil</option>
+                        <option value="Perbaikan Ringan">Perbaikan Ringan</option>
+                        <option value="Kunci Tertinggal">Kunci Tertinggal</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vehicleType">
+                            <i class="fas fa-car"></i>
+                            Jenis Kendaraan
+                        </label>
+                        <select id="vehicleType" class="form-control" required>
+                            <option value="">Pilih jenis kendaraan</option>
+                            <option value="Mobil">Mobil</option>
+                            <option value="Motor">Motor</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleBrand">
+                            <i class="fas fa-tag"></i>
+                            Merk Kendaraan
+                        </label>
+                        <input type="text" id="vehicleBrand" class="form-control" placeholder="Contoh: Toyota Avanza" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Lokasi Saat Ini
+                    </label>
+                    <textarea id="location" class="form-control" placeholder="Deskripsikan lokasi Anda dengan jelas, termasuk landmark terdekat" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="problem">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Deskripsi Masalah
+                    </label>
+                    <textarea id="problem" class="form-control" placeholder="Jelaskan masalah yang dialami kendaraan Anda secara detail" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="urgency">
+                        <i class="fas fa-clock"></i>
+                        Tingkat Urgensi
+                    </label>
+                    <select id="urgency" class="form-control" required>
+                        <option value="">Pilih tingkat urgensi</option>
+                        <option value="Sangat Mendesak">Sangat Mendesak (Kendaraan mogok di jalan raya)</option>
+                        <option value="Mendesak">Mendesak (Kendaraan mogok di tempat parkir)</option>
+                        <option value="Biasa">Biasa (Perlu perbaikan segera)</option>
+                    </select>
+                </div>
+                
+                <div class="form-submit">
+                    <button type="submit" class="cta-button primary-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Pesan Layanan Sekarang
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Pemesanan Berhasil!</h2>
+            <p>Terima kasih telah memesan layanan kami. Teknisi akan menghubungi Anda dalam waktu 5 menit untuk konfirmasi dan perkiraan waktu kedatangan.</p>
+            <button class="modal-close" id="modalClose">Tutup</button>
+        </div>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+
+</html>

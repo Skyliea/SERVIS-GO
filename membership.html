@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Membership - ServisGo</title>
+    <link rel="stylesheet" href="pesan.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS yang sudah ada di membership.html */
+        :root {
+            --primary: #1a56db;
+            --primary-dark: #163ea7;
+            --secondary: #f5b400;
+            --secondary-light: #ffcf5a;
+            --accent: #e11d48;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --muted: #475569;
+            --card: #ffffff;
+            --success: #0ea5e9;
+            --radius: 14px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.logo i {
+    color: var(--secondary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(26, 86, 219, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 86, 219, 0.4);
+}
+
+.mobile-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--secondary);
+    border-radius: 2px;
+}
+
+.section-title p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+        /* Header Section */
+        .membership-header {
+            background: linear-gradient(135deg, #10255c, #0d1e4d);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membership-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .membership-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .membership-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Membership Plans */
+        .membership-plans {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .plans-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .membership-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            flex: 1;
+            min-width: 280px;
+            max-width: 400px;
+            transition: var(--transition);
+            border: 2px solid var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membership-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .membership-card.premium {
+            border-color: var(--secondary);
+        }
+
+        .membership-card.premium:hover {
+            border-color: var(--secondary);
+        }
+
+        .membership-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .membership-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .membership-card.premium .price {
+            color: var(--secondary);
+        }
+
+        .membership-card .price small {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .features-list li i {
+            color: var(--success);
+        }
+
+        .features-list li i.fa-times {
+            color: var(--accent);
+        }
+
+        .select-plan {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .select-plan:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .membership-card.premium .select-plan {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .membership-card.premium .select-plan:hover {
+            background: var(--secondary-light);
+        }
+
+        /* Form Section */
+        .membership-form-section {
+            padding: 60px 20px;
+            background: var(--light);
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 40px;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h2 {
+            color: var(--primary-dark);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: var(--muted);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+        }
+
+        .selected-plan-display {
+            background: #e6f7ff;
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .plan-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .change-plan {
+            background: none;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .change-plan:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .payment-method {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary);
+        }
+
+        .payment-method.selected {
+            border-color: var(--primary);
+            background: rgba(26, 86, 219, 0.05);
+        }
+
+        .payment-method i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .payment-method span {
+            display: block;
+            font-weight: 600;
+        }
+
+        .terms-agreement {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .terms-agreement input {
+            margin-top: 5px;
+        }
+
+        .terms-agreement label {
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+
+        .terms-agreement a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .terms-agreement a:hover {
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .plans-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .membership-card {
+                max-width: 100%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .payment-methods {
+                flex-direction: column;
+            }
+        }
+
+        /* Floating Particles */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.1;
+            }
+            50% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Success Modal - Diperbarui untuk menyerupai form_pesan.html */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-content h2 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .modal-content p {
+            color: var(--muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .modal-close {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(26, 86, 219, 0.3);
+        }
+
+        @media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
+    
+    .booking {
+        padding: 3rem 1rem;
+    }
+    
+    .booking-form {
+        padding: 1.5rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .modal-content {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    
+    .confetti-container {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .primary-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .modal-icon {
+        font-size: 3rem;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .form-group {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    
+    .primary-btn.loading::after {
+        animation: none;
+    }
+    
+    .particle {
+        animation: none;
+        display: none;
+    }
+}
+
+.modal {
+  display: none; /* Tersembunyi secara default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="floating-particles" id="particles"></div>
+
+    <!-- Navigation -->
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tools"></i>
+                <span>ServisGo</span>
+            </a>
+            <button class="cta-button" onclick="location.href='index.html'">
+                <i class="fas fa-arrow-left"></i>
+                Kembali ke Beranda
+            </button>
+        </nav>
+
+    <!-- Header Section -->
+    <section class="membership-header">
+        <h1>Daftar Membership ServisGo</h1>
+        <p>Nikmati berbagai keuntungan eksklusif dengan menjadi member ServisGo. Pilih paket yang sesuai dengan kebutuhan Anda.</p>
+    </section>
+
+    <!-- Membership Plans -->
+    <section class="membership-plans">
+        <div class="plans-container">
+            <div class="membership-card animate-on-scroll">
+                <h3>Member Silver</h3>
+                <p class="price">Rp 100.000 <small>/ Tahun</small></p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Mendapatkan Kartu Member Silver</li>
+                    <li><i class="fas fa-check"></i> Diskon 5% untuk jasa perbaikan</li>
+                    <li><i class="fas fa-check"></i> Gratis Biaya Panggilan (3x per tahun)</li>
+                    <li><i class="fas fa-check"></i> Notifikasi Servis Berkala</li>
+                    <li><i class="fas fa-times"></i> Prioritas Layanan Darurat</li>
+                    <li><i class="fas fa-times"></i> Diskon 10% untuk Suku Cadang</li>
+                </ul>
+                <button class="select-plan" data-plan="silver" data-price="100000">Pilih Paket Silver</button>
+            </div>
+            
+            <div class="membership-card premium animate-on-scroll">
+                <h3>Member Gold</h3>
+                <p class="price">Rp 200.000 <small>/ Tahun</small></p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Mendapatkan Kartu Member Gold</li>
+                    <li><i class="fas fa-check"></i> Diskon 15% untuk jasa perbaikan</li>
+                    <li><i class="fas fa-check"></i> Gratis Biaya Panggilan Tanpa Batas</li>
+                    <li><i class="fas fa-check"></i> Notifikasi Servis Berkala</li>
+                    <li><i class="fas fa-check"></i> Prioritas Layanan Darurat (24/7)</li>
+                    <li><i class="fas fa-check"></i> Diskon 10% untuk Suku Cadang</li>
+                </ul>
+                <button class="select-plan pulse-animation" data-plan="gold" data-price="200000">Pilih Paket Gold</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Form -->
+    <section class="membership-form-section">
+        <div class="form-container animate-on-scroll">
+            <div class="form-header">
+                <h2>Form Pendaftaran Membership</h2>
+                <p>Isi data diri Anda untuk menyelesaikan pendaftaran membership</p>
+            </div>
+
+            <div id="selectedPlanDisplay" class="selected-plan-display" style="display: none;">
+                <div class="plan-info">
+                    <h4 id="selectedPlanName">Paket Silver</h4>
+                    <p id="selectedPlanPrice">Rp 100.000 / Tahun</p>
+                </div>
+                <button class="change-plan" id="changePlanBtn">Ubah Paket</button>
+            </div>
+
+            <form id="membershipForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Nama Lengkap</label>
+                        <input type="text" id="fullName" class="form-control" placeholder="Masukkan nama lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Contoh: 08123456789" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Contoh: nama@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Alamat</label>
+                    <textarea id="address" class="form-control" placeholder="Masukkan alamat lengkap" rows="3" required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vehicleType">Jenis Kendaraan</label>
+                        <select id="vehicleType" class="form-control" required>
+                            <option value="">Pilih jenis kendaraan</option>
+                            <option value="Motor">Motor</option>
+                            <option value="Mobil">Mobil</option>
+                            <option value="Keduanya">Keduanya</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vehicleBrand">Merk Kendaraan</label>
+                        <input type="text" id="vehicleBrand" class="form-control" placeholder="Contoh: Honda, Toyota, dll" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Metode Pembayaran</label>
+                    <div class="payment-methods">
+                        <div class="payment-method" data-method="transfer">
+                            <i class="fas fa-university"></i>
+                            <span>Transfer Bank</span>
+                        </div>
+                        <div class="payment-method" data-method="ewallet">
+                            <i class="fas fa-wallet"></i>
+                            <span>E-Wallet</span>
+                        </div>
+                        <div class="payment-method" data-method="card">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Kartu Kredit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terms-agreement">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <label for="agreeTerms">Saya setuju dengan <a href="#">Syarat dan Ketentuan</a> serta <a href="#">Kebijakan Privasi</a> ServisGo</label>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                    <i class="fas fa-spinner fa-spin" style="display: none;"></i>
+                    Daftar Membership Sekarang
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Success Modal - Diperbarui untuk menyerupai form_pesan.html -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Pendaftaran Berhasil!</h2>
+            <p>Terima kasih telah mendaftar sebagai member ServisGo. Detail membership dan instruksi pembayaran telah dikirim ke email Anda.</p>
+            <button class="modal-close" id="modalClose">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        // Animasi scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasi elemen saat scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.animate-on-scroll');
+                
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Jalankan saat halaman dimuat dan saat di-scroll
+            animateOnScroll();
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Pilih paket membership
+            const selectPlanButtons = document.querySelectorAll('.select-plan');
+            const selectedPlanDisplay = document.getElementById('selectedPlanDisplay');
+            const selectedPlanName = document.getElementById('selectedPlanName');
+            const selectedPlanPrice = document.getElementById('selectedPlanPrice');
+            const changePlanBtn = document.getElementById('changePlanBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            let selectedPlan = null;
+            let selectedPaymentMethod = null;
+            
+            selectPlanButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const plan = this.getAttribute('data-plan');
+                    const price = this.getAttribute('data-price');
+                    
+                    selectedPlan = plan;
+                    
+                    // Update tampilan paket yang dipilih
+                    if (plan === 'silver') {
+                        selectedPlanName.textContent = 'Paket Silver';
+                        selectedPlanPrice.textContent = 'Rp 100.000 / Tahun';
+                    } else if (plan === 'gold') {
+                        selectedPlanName.textContent = 'Paket Gold';
+                        selectedPlanPrice.textContent = 'Rp 200.000 / Tahun';
+                    }
+                    
+                    // Tampilkan bagian paket yang dipilih
+                    selectedPlanDisplay.style.display = 'flex';
+                    
+                    // Scroll ke form
+                    document.querySelector('.membership-form-section').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                    
+                    // Update status tombol submit
+                    updateSubmitButton();
+                });
+            });
+            
+            // Tombol ubah paket
+            changePlanBtn.addEventListener('click', function() {
+                selectedPlanDisplay.style.display = 'none';
+                selectedPlan = null;
+                updateSubmitButton();
+                
+                // Scroll kembali ke paket
+                document.querySelector('.membership-plans').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+            
+            // Pilih metode pembayaran
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    // Hapus kelas selected dari semua metode
+                    paymentMethods.forEach(m => m.classList.remove('selected'));
+                    
+                    // Tambahkan kelas selected ke metode yang dipilih
+                    this.classList.add('selected');
+                    
+                    selectedPaymentMethod = this.getAttribute('data-method');
+                    updateSubmitButton();
+                });
+            });
+            
+            // Update status tombol submit
+            function updateSubmitButton() {
+                const agreeTerms = document.getElementById('agreeTerms').checked;
+                
+                if (selectedPlan && selectedPaymentMethod && agreeTerms) {
+                    submitBtn.disabled = false;
+                } else {
+                    submitBtn.disabled = true;
+                }
+            }
+            
+            // Tambahkan event listener untuk checkbox persetujuan
+            document.getElementById('agreeTerms').addEventListener('change', updateSubmitButton);
+            
+            // Submit form
+            const membershipForm = document.getElementById('membershipForm');
+            const successModal = document.getElementById('successModal');
+            const modalClose = document.getElementById('modalClose');
+            const spinner = document.querySelector('.submit-btn .fa-spinner');
+            
+            membershipForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validasi form
+                const fullName = document.getElementById('fullName').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const address = document.getElementById('address').value;
+                const vehicleType = document.getElementById('vehicleType').value;
+                const vehicleBrand = document.getElementById('vehicleBrand').value;
+                
+                if (!fullName || !phone || !email || !address || !vehicleType || !vehicleBrand) {
+                    alert('Harap lengkapi semua data yang diperlukan!');
+                    return;
+                }
+                
+                // Tampilkan spinner
+                spinner.style.display = 'inline-block';
+                submitBtn.disabled = true;
+                
+                // Simulasi proses pendaftaran
+                setTimeout(function() {
+                    // Sembunyikan spinner
+                    spinner.style.display = 'none';
+                    
+                    // Tampilkan modal sukses
+                    successModal.classList.add('show');
+                    
+                    // Reset form
+                    membershipForm.reset();
+                    selectedPlanDisplay.style.display = 'none';
+                    selectedPlan = null;
+                    selectedPaymentMethod = null;
+                    paymentMethods.forEach(m => m.classList.remove('selected'));
+                    submitBtn.disabled = true;
+                }, 2000);
+            });
+            
+            // Tutup modal
+            modalClose.addEventListener('click', function() {
+                successModal.classList.remove('show');
+            });
+            
+            // Tutup modal saat klik di luar konten
+            successModal.addEventListener('click', function(e) {
+                if (e.target === successModal) {
+                    successModal.classList.remove('show');
+                }
+            });
+
+            // Floating particles
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const particleCount = 20;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random size
+                    const size = Math.random() * 20 + 5;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    // Random position
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    
+                    // Random animation delay
+                    particle.style.animationDelay = `${Math.random() * 15}s`;
+                    
+                    particlesContainer.appendChild(particle);
+                }
+            }
+            
+            createParticles();
+        });
+    </script>
+</body>
+</html>
